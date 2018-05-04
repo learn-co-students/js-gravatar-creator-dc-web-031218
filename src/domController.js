@@ -1,12 +1,9 @@
 function updateDOM(string) {
-  Identicon.all = [];
-  document.querySelectorAll('span').forEach(span=>{
-    span.style.backgroundColor = 'rgb(240, 240, 240)';
-  });
+  clearIt();
 
-  let array = md5.array(string).slice(0,15);
+  Identicon.array = md5.array(string).slice(0,15);
 
-  array.forEach((number,i)=>{
+  Identicon.array.forEach((number,i)=>{
     new Identicon(number,i);
   });
 
@@ -17,11 +14,15 @@ function updateDOM(string) {
   });
 
   Identicon.all.forEach(square=>{
-    if (square.number % 2==0){
-      square.color = `rgb(${array[0]}, ${array[1]}, ${array[2]})`;
-    }
     document.getElementById(`${square.row}-${square.column}`).style.backgroundColor = square.color;
   });
 
 
+}
+
+function clearIt(){
+  Identicon.all = [];
+  document.querySelectorAll('span').forEach(span=>{
+    span.style.backgroundColor = 'rgb(240, 240, 240)';
+  });
 }
