@@ -21,6 +21,7 @@ function updateDOM(string) {
 }
 
 function clearIt(){
+  randomText();
   Identicon.all = [];
   document.querySelectorAll('span').forEach(span=>{
     span.style.backgroundColor = 'rgb(240, 240, 240)';

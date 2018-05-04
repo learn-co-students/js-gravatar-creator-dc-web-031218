@@ -5,7 +5,7 @@ class Identicon {
     this.number = number;
     this.color = this.colorize();
     this.row = (index + 1) % 5;
-    this.column = this.row < 3 ? Math.floor((index/5)) : Identicon.all[index-2].column;
+    this.column = Math.floor((index/5));
     Identicon.all.push(this);
   }
 
